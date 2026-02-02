@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My ZO ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        img {
+            width: 260px;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        button {
+            background-color: white;
+            color: #ff4b6e;
+            border: none;
+            padding: 12px 22px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ffe6f0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            line-height: 1.8em;
+        }
+
+        /* POPUP STYLES */
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .popup-content {
+            background: white;
+            color: #ff4b6e;
+            margin: 10% auto;
+            padding: 25px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: scale(0.9);}
+            to {opacity: 1; transform: scale(1);}
+        }
+
+        .close {
+            color: #ff4b6e;
+            float: right;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Valentine’s Day, My ZO ❤️</h1>
+
+    <div class="card">
+        <p>
+            Zona, from the day you walked into my life, everything started feeling brighter and warmer.
+            You are not just my love — you are my comfort, my happiness, and my safe place. 💖
+        </p>
+
+        <img src="https://drive.google.com/file/d/1HpWVI5uKxsnxfnzNqWu4k6OokFoM3qZC/view?usp=drivesdk" alt="Our Photo">
+
+        <h2>Reasons I Love You</h2>
+        <ul>
+            <li>🥹 The way you get childish and make everything fun</li>
+            <li>🤍 How you comfort me when I need it the most</li>
+            <li>🐣 Every little cute thing you do without even trying</li>
+            <li>💫 The peace I feel just talking to you</li>
+            <li>🌍 Because life with you feels like home</li>
+        </ul>
+
+        <button onclick="showMessage()">Click if you love me 💌</button>
+        <button onclick="openLetter()">Open Love Letter 💖</button>
+
+        <p id="secretMessage" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+
+    <!-- LOVE LETTER POPUP -->
+    <div id="lovePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLetter()">&times;</span>
+            <h2>My Dearest ZO 💌</h2>
+            <p>
+                You have no idea how much you mean to me.  
+                Your childish moments make my world brighter, your hugs calm my storms,
+                and your cute little habits make me fall for you again and again.
+            </p>
+            <p>
+                Thank you for being my comfort, my happiness, and my favorite person.
+                I am so lucky to love you, ZO. Always and forever. ❤️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("secretMessage").innerText =
+            "ZO, I love you more than words, more than distance, more than time. You are my always. ❤️";
+        }
+
+        function openLetter() {
+            document.getElementById("lovePopup").style.display = "block";
+        }
+
+        function closeLetter() {
+            document.getElementById("lovePopup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
