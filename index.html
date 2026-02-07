@@ -4,11 +4,18 @@
     <title>For My ZO ❤️</title>
     <style>
         body {
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            margin: 0;
+            padding: 40px;
             font-family: Arial, sans-serif;
             text-align: center;
             color: white;
-            padding: 40px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            animation: fadePage 1.5s ease-in-out;
+        }
+
+        @keyframes fadePage {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         h1 {
@@ -21,6 +28,7 @@
             border-radius: 15px;
             max-width: 650px;
             margin: auto;
+            backdrop-filter: blur(6px);
         }
 
         img {
@@ -52,11 +60,35 @@
             line-height: 1.8em;
         }
 
-        /* POPUP STYLES */
+        /* Floating Hearts Background */
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -20px;
+            color: rgba(255,255,255,0.6);
+            font-size: 20px;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Love Letter Popup */
         .popup {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 2;
             left: 0;
             top: 0;
             width: 100%;
@@ -65,24 +97,24 @@
         }
 
         .popup-content {
-            background: white;
-            color: #ff4b6e;
+            background: linear-gradient(135deg, #fff, #ffe6f0);
+            color: #ff2e63;
             margin: 10% auto;
-            padding: 25px;
-            border-radius: 15px;
-            width: 80%;
+            padding: 30px;
+            border-radius: 20px;
+            width: 85%;
             max-width: 500px;
             text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+            animation: glowIn 0.6s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: scale(0.9);}
-            to {opacity: 1; transform: scale(1);}
+        @keyframes glowIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .close {
-            color: #ff4b6e;
             float: right;
             font-size: 22px;
             cursor: pointer;
@@ -91,62 +123,74 @@
 </head>
 <body>
 
-    <h1>Happy Valentine’s Day, My ZO ❤️</h1>
+<div class="hearts"></div>
 
-    <div class="card">
+<h1>Happy Valentine’s Day, My ZO ❤️</h1>
+
+<div class="card">
+    <p>
+        Zona, from the day you walked into my life, everything started feeling brighter and warmer.
+        You are not just my love — you are my comfort, my happiness, and my safe place. 💖
+    </p>
+
+    <!-- CHANGE THIS to your image file name -->
+    <img src="zo.jpg" alt="Me and ZO">
+
+    <h2>Reasons I Love You</h2>
+    <ul>
+        <li>🥹 The way you get childish and make everything fun</li>
+        <li>🤍 How you comfort me when I need it the most</li>
+        <li>🐣 Every little cute thing you do without even trying</li>
+        <li>💫 The peace I feel just talking to you</li>
+        <li>🌍 Because life with you feels like home</li>
+    </ul>
+
+    <button onclick="showMessage()">Click if you love me 💌</button>
+    <button onclick="openLetter()">Open Love Letter 💖</button>
+
+    <p id="secretMessage" style="margin-top:15px; font-weight:bold;"></p>
+</div>
+
+<!-- Love Letter Popup -->
+<div id="lovePopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeLetter()">&times;</span>
+        <h2>My Dearest ZO 💌</h2>
         <p>
-            Zona, from the day you walked into my life, everything started feeling brighter and warmer.
-            You are not just my love — you are my comfort, my happiness, and my safe place. 💖
+            Your childish moments make my world brighter, your hugs calm my storms,
+            and your cute little habits make me fall for you again and again.
         </p>
-
-        <img src="zo.jpg" alt="Me and ZO">
-
-        <h2>Reasons I Love You</h2>
-        <ul>
-            <li>🥹 The way you get childish and make everything fun</li>
-            <li>🤍 How you comfort me when I need it the most</li>
-            <li>🐣 Every little cute thing you do without even trying</li>
-            <li>💫 The peace I feel just talking to you</li>
-            <li>🌍 Because life with you feels like home</li>
-        </ul>
-
-        <button onclick="showMessage()">Click if you love me 💌</button>
-        <button onclick="openLetter()">Open Love Letter 💖</button>
-
-        <p id="secretMessage" style="margin-top:15px; font-weight:bold;"></p>
+        <p>
+            Thank you for being my comfort, my happiness, and my favorite person.
+            I am so lucky to love you, ZO. Always and forever. ❤️
+        </p>
     </div>
+</div>
 
-    <!-- LOVE LETTER POPUP -->
-    <div id="lovePopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closeLetter()">&times;</span>
-            <h2>My Dearest ZO 💌</h2>
-            <p>
-                You have no idea how much you mean to me.  
-                Your childish moments make my world brighter, your hugs calm my storms,
-                and your cute little habits make me fall for you again and again.
-            </p>
-            <p>
-                Thank you for being my comfort, my happiness, and my favorite person.
-                I am so lucky to love you, ZO. Always and forever. ❤️
-            </p>
-        </div>
-    </div>
+<script>
+function showMessage() {
+    document.getElementById("secretMessage").innerText =
+    "ZO, I love you more than words, more than distance, more than time. You are my always. ❤️";
+}
 
-    <script>
-        function showMessage() {
-            document.getElementById("secretMessage").innerText =
-            "ZO, I love you more than words, more than distance, more than time. You are my always. ❤️";
-        }
+function openLetter() {
+    document.getElementById("lovePopup").style.display = "block";
+}
 
-        function openLetter() {
-            document.getElementById("lovePopup").style.display = "block";
-        }
+function closeLetter() {
+    document.getElementById("lovePopup").style.display = "none";
+}
 
-        function closeLetter() {
-            document.getElementById("lovePopup").style.display = "none";
-        }
-    </script>
+/* Generate floating hearts */
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.querySelector(".hearts").appendChild(heart);
+}
+</script>
 
 </body>
 </html>
